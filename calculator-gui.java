@@ -131,6 +131,7 @@ class calculator{
             second_num.setText("");
             Last_Hist.setText("");
             hist_array.clear();
+            hist_array.addElement("History:");
         });
         cls.setBounds(250,370,125,150);
         cls.setFont(text2);
