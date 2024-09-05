@@ -14,8 +14,8 @@ class calculator{
         JFrame frame = new JFrame();
         Font text = new Font("Arial",Font.BOLD, 72);
         Font text2 = new Font("Arial",Font.BOLD, 48);
+        Font text3 = new Font("Arial",Font.BOLD, 24);
         DefaultListModel<String> hist_array = new DefaultListModel<>();
-        hist_array.addElement("History:");
         JTextField first_num= new JTextField();
 
         JTextField Last_Hist = new JTextField("");
@@ -24,6 +24,12 @@ class calculator{
         Last_Hist.setBounds(0,0,499,70);
         frame.add(Last_Hist);
 
+        JLabel label_hist = new JLabel("History");
+        label_hist.setFont(text3);
+        label_hist.setText("History:");
+        label_hist.setBounds(500,0,100,70);
+        frame.add(label_hist);
+
         JList<String> history = new JList<>(hist_array);
         history.setBounds(501,70,225,475);
         history.addMouseListener(new MouseAdapter(){
@@ -31,7 +37,7 @@ class calculator{
             public void mouseClicked(MouseEvent e){
                 if(e.getClickCount() == 2){
                     int sel = (int) history.getSelectedIndex();
-                    if(sel>0&&sel<(hist_array.size()-1)){
+                    if(sel>=0&&sel<(hist_array.size()-1)){
                         String[] selected = hist_array.get(sel).split(" = ");
                         Last_Hist.setText(selected[0] + " = ");
                         first_num.setText(selected[1]);
@@ -131,7 +137,6 @@ class calculator{
             second_num.setText("");
             Last_Hist.setText("");
             hist_array.clear();
-            hist_array.addElement("History:");
         });
         cls.setBounds(250,370,125,150);
         cls.setFont(text2);
@@ -166,7 +171,7 @@ class calculator{
             case "x" -> c=Double.toString(a*b);
             case "÷" -> c=Double.toString((double)(a/b));
             case "^" -> c=power(a,b);
-            case "%" -> c=Double.toString(a%b)
+            case "%" -> c=Double.toString(a%b);
 
             default -> c="ERR";
         }
