@@ -1,3 +1,6 @@
+- Place run.bat and calculator-gui.java in the same folder.
+- Double click run.bat to compile and start the calculator.
+
 Functionalities:-
 
 - Enter a number in the left and right text fields.
