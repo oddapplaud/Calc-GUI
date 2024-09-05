@@ -166,7 +166,7 @@ class calculator{
             case "x" -> c=Double.toString(a*b);
             case "÷" -> c=Double.toString((double)(a/b));
             case "^" -> c=power(a,b);
-            case "%" -> c=Integer.toString((int)(a%b));
+            case "%" -> c=Double.toString(a%b)
 
             default -> c="ERR";
         }
